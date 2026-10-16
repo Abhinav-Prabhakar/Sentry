@@ -3,255 +3,268 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Analytics Dashboard</title>
+<title>Environmental Risk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Instrument+Serif&family=Urbanist:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Instrument+Serif&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="viewport">
-<div class="stage" id="stage">
+<div class="app">
 
-  <div class="brand"><b>Analytics</b> <span>Dashboard</span></div>
-  <div class="maker"><b>Juice</b> <span>Lab</span></div>
-
-  <!-- ============================================================
-       VIEW 1 — Environmental Risk Overview
-       ============================================================ -->
-  <section class="frame view" id="overview">
-    <svg class="logo" style="left:40px" viewBox="0 0 50 50"><use href="#logo"/></svg>
-
-    <div class="topbar">
-      <div class="search"><svg viewBox="0 0 24 24"><circle cx="11.5" cy="11.5" r="9"/><path d="m22 22-2-2"/></svg>Search</div>
-      <div class="dd" style="left:952px;width:142px">All Regions<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <div class="dd" style="left:1101px;width:137px">All Assets<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <div class="dd muted" style="left:1245px;width:159px">All Risk Type<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <div class="dd muted" style="left:1411px;width:163px">Last 30 Days<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <div class="bell"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg><i></i></div>
-      <img class="avatar" src="assets/avatar.png" alt="">
-    </div>
-
-    <nav class="side" style="--x:26px">
-      <a class="active" style="top:127px"><svg viewBox="0 0 24 24"><use href="#i-grid-fill"/></svg></a>
-      <a style="top:192px"><svg viewBox="0 0 24 24"><use href="#i-map"/></svg></a>
-      <a style="top:256px"><svg viewBox="0 0 24 24"><use href="#i-box"/></svg></a>
-      <a style="top:322px"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></a>
-      <a style="top:386px"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></a>
-      <a style="top:452px"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></a>
-      <a style="top:1097px"><svg viewBox="0 0 24 24"><use href="#i-db"/></svg></a>
-      <a class="faint" style="top:1162px"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></a>
+  <!-- ===== Rail ===== -->
+  <aside class="rail">
+    <svg class="logo" viewBox="0 0 50 50"><use href="#logo"/></svg>
+    <nav class="nav">
+      <a href="#overview" data-view="overview"><svg viewBox="0 0 24 24" class="i-on"><use href="#i-grid-fill"/></svg><svg viewBox="0 0 24 24" class="i-off"><use href="#i-grid"/></svg></a>
+      <a href="#map" data-view="map"><svg viewBox="0 0 24 24" class="i-on"><use href="#i-map-fill"/></svg><svg viewBox="0 0 24 24" class="i-off"><use href="#i-map"/></svg></a>
+      <a><svg viewBox="0 0 24 24"><use href="#i-box"/></svg></a>
+      <a><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></a>
+      <a><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></a>
+      <a><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></a>
     </nav>
-
-    <h1 class="title" style="left:115px;top:125px">Environmental Risk Overview</h1>
-    <p class="subtitle" style="left:115px;top:179px">Monitor environmental exposure across your global assets, operations.</p>
-    <div class="btn share" style="left:1527px;top:131px;width:107px;height:60px">Share<svg viewBox="0 0 24 24"><use href="#i-share"/></svg></div>
-    <div class="btn export" style="left:1655px;top:131px;width:125px;height:60px">Export<svg viewBox="0 0 24 24"><use href="#i-download"/></svg></div>
-
-    <!-- KPI row -->
-    <div class="card" style="left:116px;top:227px;width:404px;height:193px">
-      <div class="ct" style="left:19px;top:22px">Portfolio Risk Score</div>
-      <div class="t score" style="left:18px;top:64px"><b>72</b>/100</div>
-      <div class="t red15" style="left:19px;top:103px">High Risk</div>
-      <div class="t delta" style="left:19px;top:156px"><svg viewBox="0 0 16 16"><path d="M8 1.2v2.6c0 1.4-3.6 1.6-3.6 3.4S11.6 8.8 11.6 10.6 8 12.4 8 13.8v1"/><path d="M5.6 3 8 1 10.4 3"/></svg><em>8.4%</em> vs. previous period</div>
-      <svg class="gauge" style="left:268px;top:18px" width="120" height="120" viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="56" fill="none" stroke="#f6cbd2" stroke-width="5" stroke-dasharray="0.7 1.6" opacity=".55"/>
-        <path d="M101.6 72.7 A43.5 43.5 0 0 1 88 93.3" fill="none" stroke="#e9e9e9" stroke-width="4.4" stroke-linecap="round"/>
-        <path d="M29.2 90.8 A43.5 43.5 0 1 1 101.6 72.7" fill="none" stroke="url(#gRed)" stroke-width="4.4" stroke-linecap="round"/>
-        <circle cx="60" cy="60" r="22" fill="#fdeaed"/>
-        <circle cx="60" cy="60" r="11.5" fill="#ea3b4f"/>
-        <path d="M60 53.6 L66.3 64.6 H53.7 Z" fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
-        <path d="M60 57.2v3.6" stroke="#ea3b4f" stroke-width="1.6" stroke-linecap="round"/><circle cx="60" cy="62.9" r=".9" fill="#ea3b4f"/>
-      </svg>
-    </div>
-
-    <div class="card kpi" data-color="#f3b52a" data-fill="#fde3b8" style="left:532px;top:227px;width:404px;height:193px">
-      <div class="ct" style="left:19px;top:22px">High-Risk Assets</div>
-      <div class="kicon y" style="left:335px;top:20px"><svg viewBox="0 0 24 24"><use href="#i-bell-fill"/></svg></div>
-      <div class="t pct" style="left:26px;top:70px">75<small>%</small></div>
-      <svg class="spark" style="left:16px;top:100px" width="240" height="78"></svg>
-      <div class="t kv" style="right:31px;top:136px">18 High</div>
-      <div class="t km" style="right:20px;top:162px">This month</div>
-    </div>
-
-    <div class="card kpi" data-color="#e2385a" data-fill="#fbc7d1" style="left:948px;top:227px;width:404px;height:193px">
-      <div class="ct" style="left:19px;top:22px">Active Alerts</div>
-      <div class="kicon r" style="left:335px;top:20px"><svg viewBox="0 0 24 24"><use href="#i-bell-fill"/></svg></div>
-      <div class="t pct" style="left:26px;top:70px">75<small>%</small></div>
-      <svg class="spark" style="left:16px;top:100px" width="240" height="78"></svg>
-      <div class="t kv" style="right:20px;top:136px">3 Critical</div>
-      <div class="t km" style="right:20px;top:162px">This month</div>
-    </div>
-
-    <div class="card kpi" data-color="#17b9c6" data-fill="#bdeef0" style="left:1364px;top:227px;width:405px;height:193px">
-      <div class="ct" style="left:19px;top:22px">Monitored Assets</div>
-      <div class="kicon g" style="left:335px;top:20px"><img src="assets/globe.png" alt=""></div>
-      <div class="t pct" style="left:26px;top:70px">60<small>%</small></div>
-      <svg class="spark" style="left:16px;top:100px" width="240" height="78"></svg>
-      <div class="t kv" style="right:19px;top:136px">42 Regions</div>
-      <div class="t km" style="right:30px;top:162px">This month</div>
-    </div>
-
-    <!-- Row 2 -->
-    <div class="card" style="left:116px;top:432px;width:781px;height:403px">
-      <div class="ct" style="left:18px;top:21px">Environmental Risk Map</div>
-      <img class="abs" src="assets/env-risk-map.jpg" style="left:18px;top:43px" alt="">
-      <div class="zoom" style="left:689px;top:231px"><span>+</span><span>−</span></div>
-      <div class="locate" style="left:689px;top:330px"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></svg></div>
-      <div class="chip" style="left:144px;top:360px"><i style="background:#22a95e"></i>Low<s>18%</s><u class="up g">↑</u></div>
-      <div class="chip" style="left:253px;top:360px"><i style="background:#f6a609"></i>Moderate<s>50%</s><u class="up o">↑</u></div>
-      <div class="chip" style="left:391px;top:360px"><i style="background:#e8243c"></i>High<s>80%</s><u class="up r">↓</u></div>
-      <div class="chip" style="left:505px;top:360px"><i style="background:#c2185b"></i>Critical<s>60%</s><u class="up g">↑</u></div>
-    </div>
-
-    <div class="card" style="left:909px;top:432px;width:447px;height:403px">
-      <div class="ct" style="left:19px;top:21px">Risk Exposure</div>
-      <svg id="dots" class="abs" style="left:0;top:0" width="447" height="340"></svg>
-      <div class="chip" style="left:19px;top:351px"><i style="background:#22a95e"></i>Low</div>
-      <div class="chip" style="left:106px;top:351px"><i style="background:#e8344e"></i>High</div>
-      <div class="chip" style="left:194px;top:351px"><i style="background:#f47b20"></i>Critical</div>
-      <div class="chip" style="left:296px;top:351px"><i style="background:#15c0cd"></i>Moderate</div>
-    </div>
-
-    <div class="card" style="left:1366px;top:432px;width:403px;height:403px">
-      <div class="ct" style="left:20px;top:28px">Portfolio Risk Trend</div>
-      <div class="pill" style="left:284px;top:18px">12 months<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <svg id="trend2" class="abs" style="left:0;top:0" width="403" height="290"></svg>
-      <div class="insight" style="left:21px;top:297px;width:367px;height:85px">
-        <div class="t" style="left:19px;top:22px;font-size:16.3px;color:#1c1c1c">Risk exposure increased 12.6% over 90 days.</div>
-        <div class="t" style="left:19px;top:52px;font-size:11.7px;color:#5d5d5d">Flood and heat exposure drive most of the increase.</div>
-      </div>
-    </div>
-
-    <!-- Row 3 -->
-    <div class="card" style="left:116px;top:847px;width:983px;height:382px">
-      <div class="ct" style="left:18px;top:22px">Top Risk Regions</div>
-      <div class="link" style="right:19px;top:21px">View Details<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
-      <div class="rows">
-        <div class="row" style="top:65px">
-          <div class="ic" style="background:#fdeaea;color:#e8302f"><svg viewBox="0 0 24 24"><use href="#i-alert"/></svg></div>
-          <div class="t rt">Flood Risk Increased</div><div class="t rs">Asset #2841 • Southeast Asia</div>
-          <div class="tag" style="background:#fde7e7;color:#df3b3b">Medium - High</div>
-          <div class="t ago"><i></i>12 min ago</div>
-        </div>
-        <div class="row" style="top:146px">
-          <div class="ic" style="background:#e5f5eb;color:#1f9e55"><svg viewBox="0 0 24 24"><use href="#i-heat"/></svg></div>
-          <div class="t rt">Extreme Heat Detected</div><div class="t rs">Southern Europe</div>
-          <div class="tag" style="background:#e6f6ec;color:#22a35a">+4.2’C Anomaly</div>
-          <div class="t ago"><i></i>12 min ago</div>
-        </div>
-        <div class="row" style="top:227px">
-          <div class="ic" style="background:#e1f6f8;color:#16b6c4"><svg viewBox="0 0 24 24"><use href="#i-drop"/></svg></div>
-          <div class="t rt">Water Stress Increasing</div><div class="t rs">Northern Africa</div>
-          <div class="tag" style="background:#e3f7f8;color:#1dbfcb">+18%6 Exposure</div>
-          <div class="t ago"><i></i>12 min ago</div>
-        </div>
-        <div class="row last" style="top:308px">
-          <div class="ic" style="background:#fdeee4;color:#f0702a"><svg viewBox="0 0 24 24"><use href="#i-fire"/></svg></div>
-          <div class="t rt">Wildfire Exposure Detected</div><div class="t rs">California Portfolio</div>
-          <div class="tag" style="background:#fff0e3;color:#f2832f">12 Assets Affected</div>
-          <div class="t ago"><i></i>12 min ago</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="left:1110px;top:847px;width:663px;height:382px">
-      <div class="ct" style="left:20px;top:26px">Intelligence Insight</div>
-      <div class="t" style="left:20px;top:55px;font-size:14.2px;color:#4f4f4f">Flood risk increased across 14 Southeast Asia assets.</div>
-      <div class="link" style="right:18px;top:25px">View Intelligence<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></div>
-      <div class="bigic" style="left:30px;top:181px;background:#e3f4ea;color:#21a35b"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div>
-      <div class="t big g" style="left:105px;top:183px">95%</div>
-      <div class="t bigl" style="left:105px;top:221px">Confidence</div>
-      <div class="bigic" style="left:30px;top:281px;background:#fde8e8;color:#ef2b2b"><svg viewBox="0 0 24 24"><use href="#i-alert"/></svg></div>
-      <div class="t big r" style="left:101px;top:283px">High</div>
-      <div class="t bigl" style="left:101px;top:321px">Potential Impact</div>
-      <img class="abs" src="assets/insight-orb.png" style="left:318px;top:88px" alt="">
-    </div>
-  </section>
-
-  <!-- ============================================================
-       VIEW 2 — World Risk Map
-       ============================================================ -->
-  <section class="frame view map-view" id="map">
-    <img class="abs" src="assets/world-risk-map.jpg" style="left:105px;top:191px" alt="">
-    <svg class="logo" style="left:20px" viewBox="0 0 50 50"><use href="#logo"/></svg>
-
-    <div class="topbar">
-      <div class="search" style="left:363px;width:583px"><svg viewBox="0 0 24 24"><circle cx="11.5" cy="11.5" r="9"/><path d="m22 22-2-2"/></svg>Search</div>
-      <div class="dd" style="left:952px;width:142px">All Regions<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <div class="dd" style="left:1101px;width:137px">All Assets<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <div class="dd muted" style="left:1245px;width:159px">All Risk Type<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <div class="dd muted" style="left:1411px;width:163px">Last 30 Days<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <div class="bell" style="left:1649px"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg><i></i></div>
-      <img class="avatar" style="left:1714px" src="assets/avatar.png" alt="">
-    </div>
-
-    <nav class="side" style="--x:25px">
-      <a style="top:116px"><svg viewBox="0 0 24 24"><use href="#i-grid"/></svg></a>
-      <a class="active" style="top:181px"><svg viewBox="0 0 24 24"><use href="#i-map-fill"/></svg></a>
-      <a style="top:246px"><svg viewBox="0 0 24 24"><use href="#i-box"/></svg></a>
-      <a style="top:311px"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></a>
-      <a style="top:376px"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></a>
-      <a style="top:441px"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></a>
-      <a style="top:1087px"><svg viewBox="0 0 24 24"><use href="#i-db"/></svg></a>
-      <a class="faint" style="top:1152px"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></a>
+    <nav class="nav nav-bottom">
+      <a><svg viewBox="0 0 24 24"><use href="#i-db"/></svg></a>
+      <a class="faint"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></a>
     </nav>
+  </aside>
 
-    <h1 class="title" style="left:110px;top:115px;letter-spacing:.7px">World Risk Map</h1>
-    <p class="subtitle" style="left:110px;top:167px">Explore environmental risks across your global assets and operations.</p>
-    <div class="btn share" style="left:1522px;top:122px;width:107px;height:59px">Share<svg viewBox="0 0 24 24"><use href="#i-share"/></svg></div>
-    <div class="btn export" style="left:1650px;top:121px;width:125px;height:60px">Export<svg viewBox="0 0 24 24"><use href="#i-download"/></svg></div>
-
-    <!-- Egypt popup -->
-    <div class="popup" style="left:1283px;top:377px;width:417px;height:380px">
-      <div class="t" style="left:19px;top:56px;font-size:23.5px;color:#1b1b1b">Egypt Operations</div>
-      <div class="t" style="right:21px;top:54px;font-size:13.5px;color:#8a8a8a">Overall Risk Score</div>
-      <div class="t pscore" style="left:287px;top:77px"><b>85</b>/100</div>
-      <div class="pline"></div>
-      <div class="pcol" style="left:19px"><span><i class="pd r"></i>High Risk</span><em>Egypt Operations</em></div>
-      <div class="pcol" style="left:169px"><span><i class="pd t"></i>Primary Risk</span><em>Water Stress</em></div>
-      <div class="pcol" style="left:309px"><span><svg viewBox="0 0 24 24"><path d="m2 17 6-6 4 4 9-9M15 6h6v6"/></svg>Increasing</span><em>Trend 3 month</em></div>
-      <i class="vsep" style="left:150px"></i><i class="vsep" style="left:290px"></i>
-      <img class="abs" src="assets/mini-map.jpg" style="left:1px;top:182px" alt="">
+  <!-- ===== Top bar ===== -->
+  <header class="topbar">
+    <svg class="logo logo-sm" viewBox="0 0 50 50"><use href="#logo"/></svg>
+    <span class="gap-a"></span>
+    <label class="search"><svg viewBox="0 0 24 24"><circle cx="11.5" cy="11.5" r="9"/><path d="m22 22-2-2"/></svg><span>Search</span></label>
+    <div class="filters">
+      <button class="dd dark">All Regions<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></button>
+      <button class="dd">All Assets<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></button>
+      <button class="dd muted">All Risk Type<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></button>
+      <button class="dd muted">Last 30 Days<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></button>
     </div>
-    <div class="close" style="left:1458px;top:340px"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+    <span class="gap-b"></span>
+    <button class="bell" aria-label="Notifications"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg><i></i></button>
+    <img class="avatar" src="assets/avatar.png" alt="Profile">
+  </header>
 
-    <!-- Bottom cards -->
-    <div class="card" style="left:110px;top:744px;width:712px;height:466px">
-      <div class="ct" style="left:20px;top:22px">Risk Type Distribution</div>
-      <div class="circbtn" style="left:645px;top:21px"><svg viewBox="0 0 24 24"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></div>
-      <div class="t" style="left:20px;top:108px;font-size:19px;color:#7b7b7b">Total Assets Monitored</div>
-      <div class="t" style="left:19px;top:138px;font-size:42px;color:#141414;letter-spacing:-2.6px">1248</div>
-      <div class="stat" style="left:418px;top:107px"><span><svg viewBox="0 0 24 24" style="color:#f4a612"><use href="#i-fire"/></svg>32% (398)</span><em>Wildfire Exposure</em></div>
-      <div class="stat" style="left:573px;top:107px"><span><svg viewBox="0 0 24 24" style="color:#ea2f2f"><use href="#i-alert-tri"/></svg>32% (398)</span><em>Flood Risk Increased</em></div>
-      <div class="stat" style="left:418px;top:184px"><span><svg viewBox="0 0 24 24" style="color:#18bccb"><use href="#i-drop"/></svg>32% (398)</span><em>Water Stress Increasing</em></div>
-      <div class="stat" style="left:573px;top:184px"><span><svg viewBox="0 0 24 24" style="color:#22a35a"><use href="#i-heat"/></svg>32% (398)</span><em>Extreme Heat Detected</em></div>
-      <svg id="dist" class="abs" style="left:0;top:0" width="712" height="466"></svg>
-    </div>
+  <main class="main">
 
-    <div class="card" style="left:835px;top:842px;width:426px;height:368px">
-      <div class="ct" style="left:19px;top:21px">Top Risk Regions</div>
-      <div class="link" style="right:20px;top:19px;font-size:14.5px">View Details</div>
-      <div class="t thd" style="left:19px;top:61px">Region</div>
-      <div class="t thd" style="right:20px;top:61px">Average Risk Score</div>
-      <div class="trows" style="top:3px">
-        <div class="tr" style="top:85px"><span>Middle East</span><b class="hi">High</b><em>65<small>/100</small></em></div>
-        <div class="tr" style="top:139px"><span>South Asia</span><b class="hi">High</b><em>78<small>/100</small></em></div>
-        <div class="tr" style="top:193px"><span>Southeast Asia</span><b class="hi">High</b><em>80<small>/100</small></em></div>
-        <div class="tr" style="top:247px"><span>North America</span><b class="mo">Moderate</b><em>35<small>/100</small></em></div>
-        <div class="tr last" style="top:301px"><span>South America</span><b class="mo">Moderate</b><em>40<small>/100</small></em></div>
+    <!-- ============================================================
+         Environmental Risk Overview
+         ============================================================ -->
+    <section class="view" id="view-overview" data-view="overview">
+      <div class="pagehead">
+        <div>
+          <h1 class="title">Environmental Risk Overview</h1>
+          <p class="subtitle">Monitor environmental exposure across your global assets, operations.</p>
+        </div>
+        <div class="actions">
+          <button class="btn share">Share<svg viewBox="0 0 24 24"><use href="#i-share"/></svg></button>
+          <button class="btn export">Export<svg viewBox="0 0 24 24"><use href="#i-download"/></svg></button>
+        </div>
       </div>
-    </div>
 
-    <div class="card" style="left:1274px;top:842px;width:500px;height:368px">
-      <div class="ct" style="left:18px;top:28px">Risk Trend (All Assets)</div>
-      <div class="pill" style="left:375px;top:20px">12 months<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></div>
-      <svg id="trend1" class="abs" style="left:0;top:0" width="500" height="300"></svg>
-      <div class="foot" style="left:21px;top:315px"><i></i>Risk exposure increased<b>80%<svg viewBox="0 0 12 12"><path d="M6 10.5V2M2.8 5 6 1.8 9.2 5"/></svg></b></div>
-      <div class="foot" style="left:251px;top:315px"><i></i>Average Risk Score<b>68/100<svg viewBox="0 0 12 12"><path d="M6 10.5V2M2.8 5 6 1.8 9.2 5"/></svg></b></div>
-    </div>
-  </section>
-</div>
+      <div class="grid kpis">
+        <article class="card kcard score-card">
+          <h3 class="ct">Portfolio Risk Score</h3>
+          <div class="score"><b>72</b>/100</div>
+          <div class="red15">High Risk</div>
+          <div class="delta"><svg viewBox="0 0 16 16"><path d="M8 1.2v2.6c0 1.4-3.6 1.6-3.6 3.4S11.6 8.8 11.6 10.6 8 12.4 8 13.8v1"/><path d="M5.6 3 8 1 10.4 3"/></svg><em>8.4%</em> vs. previous period</div>
+          <svg class="gauge" width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="56" fill="none" stroke="#f6cbd2" stroke-width="5" stroke-dasharray="0.7 1.6" opacity=".55"/>
+            <path d="M101.6 72.7 A43.5 43.5 0 0 1 88 93.3" fill="none" stroke="#e9e9e9" stroke-width="4.4" stroke-linecap="round"/>
+            <path d="M29.2 90.8 A43.5 43.5 0 1 1 101.6 72.7" fill="none" stroke="url(#gRed)" stroke-width="4.4" stroke-linecap="round"/>
+            <circle cx="60" cy="60" r="22" fill="#fdeaed"/>
+            <circle cx="60" cy="60" r="11.5" fill="#ea3b4f"/>
+            <path d="M60 53.6 L66.3 64.6 H53.7 Z" fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M60 57.2v3.6" stroke="#ea3b4f" stroke-width="1.6" stroke-linecap="round"/><circle cx="60" cy="62.9" r=".9" fill="#ea3b4f"/>
+          </svg>
+        </article>
+
+        <article class="card kcard kpi" data-color="#f3b52a" data-fill="#fde3b8">
+          <h3 class="ct">High-Risk Assets</h3>
+          <div class="kicon y"><svg viewBox="0 0 24 24"><use href="#i-bell-fill"/></svg></div>
+          <div class="kbody">
+            <div class="kchart"><div class="pct">75<small>%</small></div><svg class="spark" viewBox="0 0 240 78"></svg></div>
+            <div class="klabel"><div class="kv">18 High</div><div class="km">This month</div></div>
+          </div>
+        </article>
+
+        <article class="card kcard kpi" data-color="#e2385a" data-fill="#fbc7d1">
+          <h3 class="ct">Active Alerts</h3>
+          <div class="kicon r"><svg viewBox="0 0 24 24"><use href="#i-bell-fill"/></svg></div>
+          <div class="kbody">
+            <div class="kchart"><div class="pct">75<small>%</small></div><svg class="spark" viewBox="0 0 240 78"></svg></div>
+            <div class="klabel"><div class="kv">3 Critical</div><div class="km">This month</div></div>
+          </div>
+        </article>
+
+        <article class="card kcard kpi" data-color="#17b9c6" data-fill="#bdeef0">
+          <h3 class="ct">Monitored Assets</h3>
+          <div class="kicon g"><img src="assets/globe.png" alt=""></div>
+          <div class="kbody">
+            <div class="kchart"><div class="pct">60<small>%</small></div><svg class="spark" viewBox="0 0 240 78"></svg></div>
+            <div class="klabel"><div class="kv">42 Regions</div><div class="km">This month</div></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid row2">
+        <article class="card mapcard">
+          <h3 class="ct">Environmental Risk Map</h3>
+          <div class="mapbox">
+            <img src="assets/env-risk-map.jpg" alt="Environmental risk map">
+            <div class="mapctl">
+              <div class="zoom"><span>+</span><span>−</span></div>
+              <div class="locate"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></svg></div>
+            </div>
+            <div class="chips legend-map">
+              <div class="chip"><i style="background:#22a95e"></i>Low<s>18%</s><u class="up g">↑</u></div>
+              <div class="chip"><i style="background:#f6a609"></i>Moderate<s>50%</s><u class="up o">↑</u></div>
+              <div class="chip"><i style="background:#e8243c"></i>High<s>80%</s><u class="up r">↓</u></div>
+              <div class="chip"><i style="background:#c2185b"></i>Critical<s>60%</s><u class="up g">↑</u></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card expcard">
+          <h3 class="ct">Risk Exposure</h3>
+          <svg id="dots" class="chart" viewBox="0 80 447 254"></svg>
+          <div class="chips legend-exp">
+            <div class="chip"><i style="background:#22a95e"></i>Low</div>
+            <div class="chip"><i style="background:#e8344e"></i>High</div>
+            <div class="chip"><i style="background:#f47b20"></i>Critical</div>
+            <div class="chip"><i style="background:#15c0cd"></i>Moderate</div>
+          </div>
+        </article>
+
+        <article class="card trendcard">
+          <div class="chead"><h3 class="ct">Portfolio Risk Trend</h3><button class="pill">12 months<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></button></div>
+          <svg id="trend2" class="chart" viewBox="0 90 403 190"></svg>
+          <div class="insight">
+            <p class="ins1">Risk exposure increased 12.6% over 90 days.</p>
+            <p class="ins2">Flood and heat exposure drive most of the increase.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid row3">
+        <article class="card regions">
+          <div class="chead"><h3 class="ct">Top Risk Regions</h3><a class="link">View Details<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a></div>
+          <ul class="rows">
+            <li class="row">
+              <div class="ic" style="background:#fdeaea;color:#e8302f"><svg viewBox="0 0 24 24"><use href="#i-alert"/></svg></div>
+              <div class="rtext"><div class="rt">Flood Risk Increased</div><div class="rs">Asset #2841 • Southeast Asia</div></div>
+              <div class="tag" style="background:#fde7e7;color:#df3b3b">Medium - High</div>
+              <div class="ago"><i></i>12 min ago</div>
+            </li>
+            <li class="row">
+              <div class="ic" style="background:#e5f5eb;color:#1f9e55"><svg viewBox="0 0 24 24"><use href="#i-heat"/></svg></div>
+              <div class="rtext"><div class="rt">Extreme Heat Detected</div><div class="rs">Southern Europe</div></div>
+              <div class="tag" style="background:#e6f6ec;color:#22a35a">+4.2’C Anomaly</div>
+              <div class="ago"><i></i>12 min ago</div>
+            </li>
+            <li class="row">
+              <div class="ic" style="background:#e1f6f8;color:#16b6c4"><svg viewBox="0 0 24 24"><use href="#i-drop"/></svg></div>
+              <div class="rtext"><div class="rt">Water Stress Increasing</div><div class="rs">Northern Africa</div></div>
+              <div class="tag" style="background:#e3f7f8;color:#1dbfcb">+18%6 Exposure</div>
+              <div class="ago"><i></i>12 min ago</div>
+            </li>
+            <li class="row">
+              <div class="ic" style="background:#fdeee4;color:#f0702a"><svg viewBox="0 0 24 24"><use href="#i-fire"/></svg></div>
+              <div class="rtext"><div class="rt">Wildfire Exposure Detected</div><div class="rs">California Portfolio</div></div>
+              <div class="tag" style="background:#fff0e3;color:#f2832f">12 Assets Affected</div>
+              <div class="ago"><i></i>12 min ago</div>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card intel">
+          <div class="chead"><h3 class="ct">Intelligence Insight</h3><a class="link">View Intelligence<svg viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a></div>
+          <p class="insub">Flood risk increased across 14 Southeast Asia assets.</p>
+          <div class="intel-body">
+            <div class="intel-stats">
+              <div class="istat"><div class="bigic" style="background:#e3f4ea;color:#21a35b"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div><div><div class="big g">95%</div><div class="bigl">Confidence</div></div></div>
+              <div class="istat"><div class="bigic" style="background:#fde8e8;color:#ef2b2b"><svg viewBox="0 0 24 24"><use href="#i-alert"/></svg></div><div><div class="big r">High</div><div class="bigl">Potential Impact</div></div></div>
+            </div>
+            <img class="orb" src="assets/insight-orb.png" alt="">
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         World Risk Map
+         ============================================================ -->
+    <section class="view map-view" id="view-map" data-view="map">
+      <div class="pagehead">
+        <div>
+          <h1 class="title title-map">World Risk Map</h1>
+          <p class="subtitle">Explore environmental risks across your global assets and operations.</p>
+        </div>
+        <div class="actions">
+          <button class="btn share">Share<svg viewBox="0 0 24 24"><use href="#i-share"/></svg></button>
+          <button class="btn export">Export<svg viewBox="0 0 24 24"><use href="#i-download"/></svg></button>
+        </div>
+      </div>
+
+      <div class="worldwrap">
+        <div class="world" id="world">
+          <div class="world-img"><img src="assets/world-risk-map.jpg" alt="World risk map"></div>
+          <div class="egypt" id="egypt">
+            <div class="popup">
+              <div class="phead">
+                <div class="pname">Egypt Operations</div>
+                <div class="pscorebox"><div class="pors">Overall Risk Score</div><div class="pscore"><b>85</b>/100</div></div>
+              </div>
+              <div class="pcols">
+                <div class="pcol"><span><i class="pd r"></i>High Risk</span><em>Egypt Operations</em></div>
+                <div class="pcol"><span><i class="pd t"></i>Primary Risk</span><em>Water Stress</em></div>
+                <div class="pcol"><span><svg viewBox="0 0 24 24"><path d="m2 17 6-6 4 4 9-9M15 6h6v6"/></svg>Increasing</span><em>Trend 3 month</em></div>
+              </div>
+              <img class="minimap" src="assets/mini-map.jpg" alt="">
+            </div>
+            <button class="close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid mapcards">
+        <article class="card dist">
+          <div class="chead"><h3 class="ct">Risk Type Distribution</h3><button class="circbtn" aria-label="Open"><svg viewBox="0 0 24 24"><path d="M8 16 16 8M9.5 8H16v6.5"/></svg></button></div>
+          <div class="dist-top">
+            <div class="total"><div class="tlabel">Total Assets Monitored</div><div class="tnum">1248</div></div>
+            <div class="stats">
+              <div class="stat"><span><svg viewBox="0 0 24 24" style="color:#f4a612"><use href="#i-fire"/></svg>32% (398)</span><em>Wildfire Exposure</em></div>
+              <div class="stat"><span><svg viewBox="0 0 24 24" style="color:#ea2f2f"><use href="#i-alert-tri"/></svg>32% (398)</span><em>Flood Risk Increased</em></div>
+              <div class="stat"><span><svg viewBox="0 0 24 24" style="color:#18bccb"><use href="#i-drop"/></svg>32% (398)</span><em>Water Stress Increasing</em></div>
+              <div class="stat"><span><svg viewBox="0 0 24 24" style="color:#22a35a"><use href="#i-heat"/></svg>32% (398)</span><em>Extreme Heat Detected</em></div>
+            </div>
+          </div>
+          <svg id="dist" class="chart" viewBox="0 220 712 232"></svg>
+        </article>
+
+        <article class="card tregions">
+          <div class="chead"><h3 class="ct">Top Risk Regions</h3><a class="link">View Details</a></div>
+          <div class="thead"><span>Region</span><span>Average Risk Score</span></div>
+          <ul class="trows">
+            <li class="tr"><span>Middle East</span><b class="hi">High</b><em>65<small>/100</small></em></li>
+            <li class="tr"><span>South Asia</span><b class="hi">High</b><em>78<small>/100</small></em></li>
+            <li class="tr"><span>Southeast Asia</span><b class="hi">High</b><em>80<small>/100</small></em></li>
+            <li class="tr"><span>North America</span><b class="mo">Moderate</b><em>35<small>/100</small></em></li>
+            <li class="tr"><span>South America</span><b class="mo">Moderate</b><em>40<small>/100</small></em></li>
+          </ul>
+        </article>
+
+        <article class="card trend1card">
+          <div class="chead"><h3 class="ct">Risk Trend (All Assets)</h3><button class="pill">12 months<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></button></div>
+          <svg id="trend1" class="chart" viewBox="0 88 500 206"></svg>
+          <div class="foots">
+            <div class="foot"><i></i>Risk exposure increased<b>80%<svg viewBox="0 0 12 12"><path d="M6 10.5V2M2.8 5 6 1.8 9.2 5"/></svg></b></div>
+            <div class="foot"><i></i>Average Risk Score<b>68/100<svg viewBox="0 0 12 12"><path d="M6 10.5V2M2.8 5 6 1.8 9.2 5"/></svg></b></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
 </div>
 
 <!-- Shared icon sprites -->

@@ -188,21 +188,29 @@
     });
   }
 
-  /* ---------- view switching + fit-to-window ---------- */
+  /* ---------- view switching ---------- */
   const views = [...document.querySelectorAll('.view')];
+  const links = [...document.querySelectorAll('.nav a[data-view]')];
   const show = () => {
-    const id = (location.hash || '#overview').slice(1);
-    views.forEach(v => v.classList.toggle('on', v.id === (views.some(x => x.id === id) ? id : 'overview')));
+    let id = (location.hash || '#overview').slice(1);
+    if (!views.some(v => v.dataset.view === id)) id = 'overview';
+    views.forEach(v => v.classList.toggle('on', v.dataset.view === id));
+    links.forEach(a => a.classList.toggle('active', a.dataset.view === id));
+    fitPopup();
+    requestAnimationFrame(() => { centre(); if (wrap) wrap.dataset.ready = 1; });
   };
+
+  /* ---------- keep the map popup locked to the map artwork ---------- */
+  const world = document.getElementById('world');
+  const egypt = document.getElementById('egypt');
+  function fitPopup() {
+    if (world && egypt && world.clientWidth) egypt.style.setProperty('--k', world.clientWidth / 1690);
+  }
+  if (world && 'ResizeObserver' in window) new ResizeObserver(fitPopup).observe(world);
+  // on narrow screens the map scrolls sideways; start centred on the risk regions
+  const wrap = world && world.parentElement;
+  const centre = () => { if (wrap && wrap.scrollWidth > wrap.clientWidth && !wrap.dataset.moved) wrap.scrollLeft = (wrap.scrollWidth - wrap.clientWidth) * 0.85; };
+  if (wrap) wrap.addEventListener('scroll', () => { if (wrap.dataset.ready) wrap.dataset.moved = 1; }, { passive: true });
+  addEventListener('resize', fitPopup);
   addEventListener('hashchange', show); show();
-  document.querySelectorAll('.side a').forEach((a, i) => {
-    if (i % 8 === 0) a.href = '#overview';
-    if (i % 8 === 1) a.href = '#map';
-  });
-  const stage = document.getElementById('stage');
-  const fit = () => {
-    const s = Math.min(innerWidth / 2000, innerHeight / 1500);
-    stage.style.transform = `scale(${s})`;
-  };
-  addEventListener('resize', fit); fit();
 })();
