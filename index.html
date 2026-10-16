@@ -68,22 +68,14 @@
           <div class="score"><b>72</b>/100</div>
           <div class="red15">High Risk</div>
           <div class="delta"><svg viewBox="0 0 16 16"><path d="M8 1.2v2.6c0 1.4-3.6 1.6-3.6 3.4S11.6 8.8 11.6 10.6 8 12.4 8 13.8v1"/><path d="M5.6 3 8 1 10.4 3"/></svg><em>8.4%</em> vs. previous period</div>
-          <svg class="gauge" width="120" height="120" viewBox="0 0 120 120">
-            <circle cx="60" cy="60" r="56" fill="none" stroke="#f6cbd2" stroke-width="5" stroke-dasharray="0.7 1.6" opacity=".55"/>
-            <path d="M101.6 72.7 A43.5 43.5 0 0 1 88 93.3" fill="none" stroke="#e9e9e9" stroke-width="4.4" stroke-linecap="round"/>
-            <path d="M29.2 90.8 A43.5 43.5 0 1 1 101.6 72.7" fill="none" stroke="url(#gRed)" stroke-width="4.4" stroke-linecap="round"/>
-            <circle cx="60" cy="60" r="22" fill="#fdeaed"/>
-            <circle cx="60" cy="60" r="11.5" fill="#ea3b4f"/>
-            <path d="M60 53.6 L66.3 64.6 H53.7 Z" fill="#fff" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
-            <path d="M60 57.2v3.6" stroke="#ea3b4f" stroke-width="1.6" stroke-linecap="round"/><circle cx="60" cy="62.9" r=".9" fill="#ea3b4f"/>
-          </svg>
+          <div class="gauge" id="gauge"></div>
         </article>
 
         <article class="card kcard kpi" data-color="#f3b52a" data-fill="#fde3b8">
           <h3 class="ct">High-Risk Assets</h3>
           <div class="kicon y"><svg viewBox="0 0 24 24"><use href="#i-bell-fill"/></svg></div>
           <div class="kbody">
-            <div class="kchart"><div class="pct">75<small>%</small></div><svg class="spark" viewBox="0 0 240 78"></svg></div>
+            <div class="kchart"><div class="pct">75<small>%</small></div><div class="spark"></div></div>
             <div class="klabel"><div class="kv">18 High</div><div class="km">This month</div></div>
           </div>
         </article>
@@ -92,7 +84,7 @@
           <h3 class="ct">Active Alerts</h3>
           <div class="kicon r"><svg viewBox="0 0 24 24"><use href="#i-bell-fill"/></svg></div>
           <div class="kbody">
-            <div class="kchart"><div class="pct">75<small>%</small></div><svg class="spark" viewBox="0 0 240 78"></svg></div>
+            <div class="kchart"><div class="pct">75<small>%</small></div><div class="spark"></div></div>
             <div class="klabel"><div class="kv">3 Critical</div><div class="km">This month</div></div>
           </div>
         </article>
@@ -101,7 +93,7 @@
           <h3 class="ct">Monitored Assets</h3>
           <div class="kicon g"><img src="assets/globe.png" alt=""></div>
           <div class="kbody">
-            <div class="kchart"><div class="pct">60<small>%</small></div><svg class="spark" viewBox="0 0 240 78"></svg></div>
+            <div class="kchart"><div class="pct">60<small>%</small></div><div class="spark"></div></div>
             <div class="klabel"><div class="kv">42 Regions</div><div class="km">This month</div></div>
           </div>
         </article>
@@ -111,10 +103,10 @@
         <article class="card mapcard">
           <h3 class="ct">Environmental Risk Map</h3>
           <div class="mapbox">
-            <img src="assets/env-risk-map.jpg" alt="Environmental risk map">
+            <div class="geo" id="geo-overview" role="img" aria-label="Environmental risk map"></div>
             <div class="mapctl">
-              <div class="zoom"><span>+</span><span>−</span></div>
-              <div class="locate"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></svg></div>
+              <div class="zoom"><button data-zoom="in" aria-label="Zoom in">+</button><button data-zoom="out" aria-label="Zoom out">−</button></div>
+              <button class="locate" data-zoom="reset" aria-label="Reset view"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></svg></button>
             </div>
             <div class="chips legend-map">
               <div class="chip"><i style="background:#22a95e"></i>Low<s>18%</s><u class="up g">↑</u></div>
@@ -127,7 +119,7 @@
 
         <article class="card expcard">
           <h3 class="ct">Risk Exposure</h3>
-          <svg id="dots" class="chart" viewBox="0 80 447 254"></svg>
+          <div id="dots" class="chart chart-dots"></div>
           <div class="chips legend-exp">
             <div class="chip"><i style="background:#22a95e"></i>Low</div>
             <div class="chip"><i style="background:#e8344e"></i>High</div>
@@ -138,7 +130,7 @@
 
         <article class="card trendcard">
           <div class="chead"><h3 class="ct">Portfolio Risk Trend</h3><button class="pill">12 months<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></button></div>
-          <svg id="trend2" class="chart" viewBox="0 90 403 190"></svg>
+          <div id="trend2" class="chart chart-trend2"></div>
           <div class="insight">
             <p class="ins1">Risk exposure increased 12.6% over 90 days.</p>
             <p class="ins2">Flood and heat exposure drive most of the increase.</p>
@@ -208,7 +200,7 @@
 
       <div class="worldwrap">
         <div class="world" id="world">
-          <div class="world-img"><img src="assets/world-risk-map.jpg" alt="World risk map"></div>
+          <div class="geo" id="geo-world" role="img" aria-label="World risk map"></div>
           <div class="egypt" id="egypt">
             <div class="popup">
               <div class="phead">
@@ -220,7 +212,7 @@
                 <div class="pcol"><span><i class="pd t"></i>Primary Risk</span><em>Water Stress</em></div>
                 <div class="pcol"><span><svg viewBox="0 0 24 24"><path d="m2 17 6-6 4 4 9-9M15 6h6v6"/></svg>Increasing</span><em>Trend 3 month</em></div>
               </div>
-              <img class="minimap" src="assets/mini-map.jpg" alt="">
+              <div class="geo minimap" id="geo-mini"></div>
             </div>
             <button class="close" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
           </div>
@@ -239,7 +231,7 @@
               <div class="stat"><span><svg viewBox="0 0 24 24" style="color:#22a35a"><use href="#i-heat"/></svg>32% (398)</span><em>Extreme Heat Detected</em></div>
             </div>
           </div>
-          <svg id="dist" class="chart" viewBox="0 220 712 232"></svg>
+          <div id="dist" class="chart chart-dist"></div>
         </article>
 
         <article class="card tregions">
@@ -256,7 +248,7 @@
 
         <article class="card trend1card">
           <div class="chead"><h3 class="ct">Risk Trend (All Assets)</h3><button class="pill">12 months<svg viewBox="0 0 12 12"><path d="m2.5 4.3 3.5 3.5 3.5-3.5"/></svg></button></div>
-          <svg id="trend1" class="chart" viewBox="0 88 500 206"></svg>
+          <div id="trend1" class="chart chart-trend1"></div>
           <div class="foots">
             <div class="foot"><i></i>Risk exposure increased<b>80%<svg viewBox="0 0 12 12"><path d="M6 10.5V2M2.8 5 6 1.8 9.2 5"/></svg></b></div>
             <div class="foot"><i></i>Average Risk Score<b>68/100<svg viewBox="0 0 12 12"><path d="M6 10.5V2M2.8 5 6 1.8 9.2 5"/></svg></b></div>
@@ -298,6 +290,12 @@
   </defs>
 </svg>
 
+<script src="vendor/d3.min.js"></script>
+<script src="vendor/topojson-client.min.js"></script>
+<script src="data/countries-50m.js"></script>
+<script src="data/map-config.js"></script>
+<script src="data/dashboard-data.js"></script>
+<script src="map.js"></script>
 <script src="charts.js"></script>
 </body>
 </html>
