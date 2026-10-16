@@ -102,7 +102,7 @@
       el('rect', { x: x - o.bw / 2, y: top, width: o.bw, height: base - top, fill: hot ? `url(#${o.id}r)` : '#dedede', opacity: hot ? 1 : .85 }, svg);
     }
     el('path', { d: smooth(pts), fill: 'none', stroke: '#fff', 'stroke-width': 5, 'stroke-linecap': 'round', opacity: .9 }, svg);
-    el('path', { d: smooth(pts), fill: 'none', stroke: '#c8304a', 'stroke-width': 2.1, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, svg);
+    el('path', { d: smooth(pts), fill: 'none', stroke: '#cc3550', 'stroke-width': 1.8, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, svg);
 
     const [mx, my] = [o.marker[0] - ox, o.marker[1] - oy];
     el('circle', { cx: mx, cy: my, r: 10.5, fill: '#e8314c' }, svg);
@@ -115,8 +115,8 @@
     el('circle', { cx: tx + 13, cy: ty + 11, r: 3.3, fill: '#e8314c' }, g);
     el('circle', { cx: tx + 13, cy: ty + 31, r: 3.3, fill: '#e3e3e3' }, g);
     const txt = (x, y, s, fill, w) => { const t = el('text', { x, y, fill, 'font-size': 10, 'font-weight': w || 400, 'font-family': 'Inter', 'letter-spacing': '-.2' }, g); t.textContent = s; };
-    txt(tx + 22, ty + 14.5, 'Risk Up', '#a8a8a8'); txt(tx + 57, ty + 14.5, '12.6%', '#333', 500);
-    txt(tx + 22, ty + 34.5, 'Over', '#a8a8a8'); txt(tx + 47, ty + 34.5, '90 Days', '#333', 500);
+    txt(tx + 22, ty + 14.5, 'Risk Up', '#a8a8a8'); txt(tx + 61, ty + 14.5, '12.6%', '#333', 500);
+    txt(tx + 22, ty + 34.5, 'Over', '#a8a8a8'); txt(tx + 49, ty + 34.5, '90 Days', '#333', 500);
 
     o.months.forEach(([m, x]) => {
       const t = el('text', { x: x - ox, y: o.monthY - oy, fill: '#5a5a5a', 'font-size': 12.5, 'font-family': 'Inter', 'text-anchor': 'middle' }, svg);
@@ -140,7 +140,7 @@
 
   const t1 = document.getElementById('trend1');
   if (t1) trend(t1, {
-    id: 't1', origin: [1374, 973], x0: 1418, x1: 1856, pitch: 2.75, bw: 1.2, base: 1236,
+    id: 't1', origin: [1374, 973], x0: 1418, x1: 1856, pitch: 3.3, bw: 1.3, base: 1236,
     minH: 0, varH: 0, hi: [1547, 1661], hiTop: 1110,
     line: [[1419, 1236], [1434, 1217.5], [1447.5, 1192.5], [1452.5, 1189.5], [1457.5, 1193], [1464, 1191], [1472, 1179], [1479, 1185.5], [1483, 1183], [1495, 1196], [1506, 1198], [1522.5, 1179], [1542.5, 1189.5], [1555, 1184], [1570, 1175], [1587.5, 1162.5], [1597.5, 1145], [1607.5, 1134], [1617.5, 1140], [1630, 1155], [1639, 1157.5], [1647.5, 1149.5], [1659, 1144], [1670, 1172.5], [1679, 1157.5], [1691, 1148], [1702.5, 1160], [1712.5, 1171], [1724, 1171], [1737.5, 1196], [1750, 1184], [1757.5, 1183], [1772.5, 1189], [1787.5, 1177], [1800, 1159], [1807.5, 1162.5], [1816, 1177.5], [1822.5, 1171], [1835, 1179], [1845, 1166], [1855, 1134.5]],
     marker: [1607.5, 1134], tip: [1557, 1067],

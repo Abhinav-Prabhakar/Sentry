@@ -161,7 +161,7 @@ body{
 .circbtn svg{width:22px;height:22px;fill:none;stroke:#222;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .stat{position:absolute;display:flex;flex-direction:column;gap:9px;white-space:nowrap}
 .stat span{font-weight:450;display:flex;align-items:center;font-size:16.3px;color:#252525;line-height:1}
-.stat svg{width:17px;height:17px;margin-right:6px}
+.stat svg{width:19px;height:19px;margin-right:5px}
 .stat em{font-style:normal;font-size:11.5px;color:#9a9a9a;line-height:1}
 
 .thd{font-size:12px;color:#6f6f6f}
@@ -173,7 +173,7 @@ body{
 .tr b.mo{background:#fff1e6;color:#f2852f}
 .tr em{position:absolute;right:0;font-style:normal;font-size:15px;color:#1d1d1d;font-weight:500}
 .tr em small{font-size:12px;color:#7d7d7d;font-weight:400}
-.foot{position:absolute;height:30px;padding:0 11px 0 9px;border-radius:15px;background:#fff;box-shadow:0 0 0 1px #f1f1f1;display:flex;align-items:center;font-size:12px;color:#1d1d1d;white-space:nowrap}
+.foot{position:absolute;height:30px;padding:0 11px 0 9px;border-radius:15px;background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.04);display:flex;align-items:center;font-size:12px;color:#1d1d1d;white-space:nowrap}
 .foot i{width:7px;height:7px;border-radius:50%;background:#e8243c;margin-right:4px}
 .foot b{display:flex;align-items:center;color:#e8243c;font-weight:500;font-size:15px;margin-left:11px}
 .foot b svg{width:11px;height:11px;fill:none;stroke:#e8243c;stroke-width:1.4;margin-left:3px}
